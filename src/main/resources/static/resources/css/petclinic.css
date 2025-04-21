@@ -9278,7 +9278,7 @@ textarea.form-control-lg {
   transition: border 0.15s;
   color: #f1f1f1;
   background: #34302D;
-  border-color: #6db33f;
+  border-color: #b60000;
   -webkit-transition: border 0.15s;
   -moz-transition: border 0.15s;
   -o-transition: border 0.15s;
@@ -9323,7 +9323,7 @@ h1, .h1 {
   display: none; }
 
 .splash {
-  background: #6db33f;
+  background: #b60000;
   color: #34302D;
   display: none; }
 
@@ -9430,7 +9430,7 @@ strong {
   font-family: "montserratregular", sans-serif; }
 
 .navbar {
-  border-top: 4px solid #6db33f;
+  border-top: 4px solid #b60000;
   background-color: #34302d;
   margin-bottom: 0px;
   border-bottom: 0;
@@ -9480,7 +9480,7 @@ strong {
 
 .navbar li:hover > a {
   color: #eeeeee;
-  background-color: #6db33f; }
+  background-color: #b60000; }
 
 .navbar-toggle {
   border-width: 0; }
