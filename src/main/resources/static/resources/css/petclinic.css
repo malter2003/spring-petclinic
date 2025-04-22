@@ -9460,11 +9460,11 @@ strong {
   opacity: 1; }
 
 .navbar li > a, .navbar-text {
-  font-family: "montserratregular", sans-serif;
+  font-family: "Roboto", sans-serif;
   text-shadow: none;
   font-size: 14px;
   /* line-height: 14px; */
-  padding: 28px 20px;
+  padding: 28px 32px;
   transition: all 0.15s;
   -webkit-transition: all 0.15s;
   -moz-transition: all 0.15s;
