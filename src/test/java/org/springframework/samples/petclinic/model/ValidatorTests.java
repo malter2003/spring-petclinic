@@ -57,4 +57,21 @@ class ValidatorTests {
 		assertThat(violation.getMessage()).isEqualTo("must not be blank");
 	}
 
+	@Test
+	void shouldNotValidateWhenLastNameEmpty() {
+
+		LocaleContextHolder.setLocale(Locale.ENGLISH);
+		Person person = new Person();
+		person.setFirstName("john");
+		person.setLastName("");
+
+		Validator validator = createValidator();
+		Set<ConstraintViolation<Person>> constraintViolations = validator.validate(person);
+
+		assertThat(constraintViolations).hasSize(1);
+		ConstraintViolation<Person> violation = constraintViolations.iterator().next();
+		assertThat(violation.getPropertyPath()).hasToString("lastName");
+		assertThat(violation.getMessage()).isEqualTo("must not be blank");
+	}
+
 }

@@ -1,5 +1,5 @@
 .navbar {
-  border-top: 4px solid #6db33f;
+  border-top: 4px solid #b60000;
   background-color: #34302d;
   margin-bottom: 0px;
   border-bottom: 0;
@@ -38,7 +38,7 @@
   font-size: 14px;
 
 /* line-height: 14px; */
-  padding: 28px 20px;
+  padding: 28px 30px;
   transition: all 0.15s;
   -webkit-transition: all 0.15s;
   -moz-transition: all 0.15s;
@@ -56,7 +56,7 @@
 }
 .navbar li:hover > a {
   color: #eeeeee;
-  background-color: #6db33f;
+  background-color: #b60000;
 }
 
 .navbar-toggle {

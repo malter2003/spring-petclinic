@@ -30,6 +30,8 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.samples.petclinic.vet.VetRepository;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.DefaultResponseErrorHandler;
+import org.springframework.http.client.ClientHttpResponse;
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class PetClinicIntegrationTests {
@@ -54,6 +56,30 @@ public class PetClinicIntegrationTests {
 		RestTemplate template = builder.rootUri("http://localhost:" + port).build();
 		ResponseEntity<String> result = template.exchange(RequestEntity.get("/owners/1").build(), String.class);
 		assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+	}
+
+	@Test
+	void testInvalidOwnerDetails() {
+		RestTemplate template = builder.rootUri("http://localhost:" + port)
+			.errorHandler(new DefaultResponseErrorHandler() {
+				@Override
+				public void handleError(ClientHttpResponse response) {
+				}
+			})
+			.build();
+
+		ResponseEntity<String> result = template.exchange(RequestEntity.get("/owners/9999").build(), String.class);
+
+		assertThat(result.getStatusCode()).isEqualTo(HttpStatus.INTERNAL_SERVER_ERROR);
+	}
+
+	@Test
+	void testVetsJsonResponse() {
+		RestTemplate template = builder.rootUri("http://localhost:" + port).build();
+		ResponseEntity<String> result = template.exchange(RequestEntity.get("/vets").build(), String.class);
+
+		assertThat(result.getStatusCode()).isEqualTo(HttpStatus.OK);
+		assertThat(result.getBody()).contains("vetList");
 	}
 
 	public static void main(String[] args) {
