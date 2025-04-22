@@ -1,0 +1,14 @@
+@startuml
+package "Owner Management" {
+    [Owner] --> [Pet] : owns
+    [Pet] --> [Visit] : has
+    [Owner] --> [Person] : extends
+}
+
+package "Veterinarian Management" {
+    [Vet] --> [Visit] : performs
+    [Vet] --> [Person] : extends 
+    [Vet] --> [Pet] : treats
+}
+
+@enduml

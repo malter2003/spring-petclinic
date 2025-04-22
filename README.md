@@ -125,6 +125,25 @@ The following items should be installed in your system:
 
     Visit [http://localhost:8080](http://localhost:8080) in your browser.
 
+## UML Diagram Automation with PlantUML 
+Overview 
+
+This project uses PlantUML to automate the generation of UML diagrams during the Maven build process. The diagrams are generted from .puml files located in the project and are automatically updated whenever the build process is run. This ensures the UML diagrams remain consistent with the codebase. 
+
+How it works 
+1. PlantUML Integration 
+    The maven build script (pom.xml) is configured to use the `maven-antrun-plugin` to execute the plantUML tool. 
+    The `net.sourceforg.plant.uml.Run` class process .puml files and generates diagrams in the specific format. 
+2. Diagram Source Files: 
+    All .puml files should be placed in the 
+    `/src/main/resources/diagrams` directory 
+    These files define the structure and relationships of the classes, components, or processes in the system 
+3. Output 
+    The generated diagrams are saved in the same directory as the .puml files 
+How to Get it to Work 
+1. Run the build 
+    Use the following Maven command to generate the diagrams:  `mvn clean install  ` and then check the output 
+
 ## Looking for something in particular?
 
 |Spring Boot Configuration | Class or Java property files  |
